@@ -14,13 +14,15 @@ function getComputerChoice (){
     }
 }
 
-// testing getComputerChoice function output
-console.log(getComputerChoice());
-
 function getHumanChoice(){
     let userInput = prompt("rock, paper or scissors?");
     return userInput;
 }
 
+// testing getComputerChoice function output
+console.log(getComputerChoice());
 // testing getHumanChoice function output
 console.log(getHumanChoice());
+
+let humanScore = 0;
+let computerScore = 0;
