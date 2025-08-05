@@ -1,6 +1,7 @@
 // intialise global variables
-let humanScore = 0;
 let computerScore = 0;
+let humanScore = 0;
+let round = 0;
 
 function getComputerChoice (){
     // create a random whole number between 0 and 2
@@ -33,7 +34,7 @@ function playRound(computerChoice, humanChoice) {
 
     // selects the winner
     if (humanChoice == computerChoice) {
-        console.log(`It's a tie!!!, you picked ${humanChoice} and the computer also picked ${computerChoice}`)
+        console.log(`It's a tie!!!, you picked ${humanChoice} and the computer also picked ${computerChoice}`);
         humanScore++;
         computerScore++;
     } else if (humanChoice == "rock") {
@@ -63,4 +64,19 @@ function playRound(computerChoice, humanChoice) {
     }
 }
 
-playRound(computerSelection, humanSelection);
+function playGame(round, computerScore, humanScore) {
+    round++;
+    if (round < 5) {
+        playRound(computerSelection, humanSelection);
+    } else {
+        if (humanScore == computerScore) {
+            console.log(`Game over, you drew!!!, you won ${humanScore} rounds and the computer also won ${computerScore} rounds.`)
+        } else if (humanScore > computerScore) {
+             console.log(`Game over, you won!!!, you won ${humanScore} rounds and the computer also won ${computerScore} rounds.`)
+        } else {
+             console.log(`Game over, you lost!!!, you won ${humanScore} rounds and the computer also won ${computerScore} rounds.`)
+        }
+    }
+}
+
+playGame(round, computerScore, humanScore);
