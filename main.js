@@ -1,15 +1,15 @@
-function compChoice (){
+function getComputerChoice (){
     let choiceNum = Math.floor((Math.random() * 3));
     console.log(choiceNum)
     if (choiceNum == 0) {
-        return "Rock";
+        return "rock";
     } else if (choiceNum == 1) {
-        return "Paper";
+        return "paper";
     } else if (choiceNum == 2) {
-        return "Scissors";
+        return "scissors";
     } else {
         return "Error: compChoice function not returning the correct value";
     }
 }
 
-console.log(compChoice());
+console.log(getComputerChoice());
