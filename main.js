@@ -1,3 +1,7 @@
+// intialise global variables
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice (){
     // create a random whole number between 0 and 2
     let choiceNum = Math.floor((Math.random() * 3));
@@ -19,10 +23,44 @@ function getHumanChoice(){
     return userInput;
 }
 
-// testing getComputerChoice function output
-console.log(getComputerChoice());
-// testing getHumanChoice function output
-console.log(getHumanChoice());
+// store player and computer choices
+const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
 
-let humanScore = 0;
-let computerScore = 0;
+function playRound(computerChoice, humanChoice) {
+    // input sanitation to lower case
+    humanChoice = humanChoice.toLowerCase();
+
+    // selects the winner
+    if (humanChoice == computerChoice) {
+        console.log(`It's a tie!!!, you picked ${humanChoice} and the computer also picked ${computerChoice}`)
+        humanScore++;
+        computerScore++;
+    } else if (humanChoice == "rock") {
+        if (computerChoice == "scissors") {
+            console.log(`You win!!!, you picked ${humanChoice} and the computer picked ${computerChoice}`);
+            humanScore++;
+        } else {
+            console.log(`You lose!!!, you picked ${humanChoice} and the computer picked ${computerChoice}`);
+            computerScore++;
+        }
+    } else if (humanChoice == "paper") {
+        if (computerChoice == "scissors") {
+            console.log(`You win!!!, you picked ${humanChoice} and the computer picked ${computerChoice}`);
+            humanScore++;
+        } else {
+            console.log(`You lose!!!, you picked ${humanChoice} and the computer picked ${computerChoice}`);
+            computerScore++;
+        }
+    } else {
+        if (computerChoice == "paper") {
+            console.log(`You win!!!, you picked ${humanChoice} and the computer picked ${computerChoice}`);
+            humanScore++;
+        } else {
+            console.log(`You lose!!!, you picked ${humanChoice} and the computer picked ${computerChoice}`);
+            computerScore++;
+        }
+    }
+}
+
+playRound(computerSelection, humanSelection);
