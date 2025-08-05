@@ -1,6 +1,8 @@
 function getComputerChoice (){
+    // create a random whole number between 0 and 2
     let choiceNum = Math.floor((Math.random() * 3));
-    console.log(choiceNum)
+
+    // choses rock, paper or scissors with error message
     if (choiceNum == 0) {
         return "rock";
     } else if (choiceNum == 1) {
@@ -12,4 +14,13 @@ function getComputerChoice (){
     }
 }
 
+// testing getComputerChoice function output
 console.log(getComputerChoice());
+
+function getHumanChoice(){
+    let userInput = prompt("rock, paper or scissors?");
+    return userInput;
+}
+
+// testing getHumanChoice function output
+console.log(getHumanChoice());
