@@ -24,15 +24,11 @@ function getHumanChoice(){
     return userInput;
 }
 
-// store player and computer choices
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
-
 function playRound(computerChoice, humanChoice) {
     // input sanitation to lower case
     humanChoice = humanChoice.toLowerCase();
 
-    // selects the winner
+    // selects the winner, gives message and updates score
     if (humanChoice == computerChoice) {
         console.log(`It's a tie!!!, you picked ${humanChoice} and the computer also picked ${computerChoice}`);
         humanScore++;
@@ -46,7 +42,7 @@ function playRound(computerChoice, humanChoice) {
             computerScore++;
         }
     } else if (humanChoice == "paper") {
-        if (computerChoice == "scissors") {
+        if (computerChoice == "rock") {
             console.log(`You win!!!, you picked ${humanChoice} and the computer picked ${computerChoice}`);
             humanScore++;
         } else {
@@ -64,19 +60,23 @@ function playRound(computerChoice, humanChoice) {
     }
 }
 
-function playGame(round, computerScore, humanScore) {
-    round++;
-    if (round < 5) {
+function playGame() {
+    // plays 5 rounds calling relevant functions
+    while (round < 5) {
+        const computerSelection = getComputerChoice();
+        const humanSelection = getHumanChoice();
         playRound(computerSelection, humanSelection);
+        round++;
+    } 
+
+    // decides the overall winner
+    if (humanScore == computerScore) {
+        console.log(`Game over, you drew!!!, you won ${humanScore} rounds and the computer also won ${computerScore} rounds.`)
+    } else if (humanScore > computerScore) {
+        console.log(`Game over, you won!!!, you won ${humanScore} rounds and the computer won ${computerScore} rounds.`)
     } else {
-        if (humanScore == computerScore) {
-            console.log(`Game over, you drew!!!, you won ${humanScore} rounds and the computer also won ${computerScore} rounds.`)
-        } else if (humanScore > computerScore) {
-             console.log(`Game over, you won!!!, you won ${humanScore} rounds and the computer also won ${computerScore} rounds.`)
-        } else {
-             console.log(`Game over, you lost!!!, you won ${humanScore} rounds and the computer also won ${computerScore} rounds.`)
-        }
+        console.log(`Game over, you lost!!!, you won ${humanScore} rounds and the computer won ${computerScore} rounds.`)
     }
 }
 
-playGame(round, computerScore, humanScore);
+playGame();
