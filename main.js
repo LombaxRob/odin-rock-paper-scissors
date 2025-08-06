@@ -49,7 +49,7 @@ function playRound(computerChoice, humanChoice) {
             console.log(`You lose!!!, you picked ${humanChoice} and the computer picked ${computerChoice}`);
             computerScore++;
         }
-    } else {
+    } else if (humanChoice == "scissors") {
         if (computerChoice == "paper") {
             console.log(`You win!!!, you picked ${humanChoice} and the computer picked ${computerChoice}`);
             humanScore++;
